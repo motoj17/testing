@@ -1,3 +1,4 @@
+/* Global styles */
 * {
     margin: 0;
     padding: 0;
@@ -15,10 +16,20 @@ body {
     background-color: #333;
     color: #fff;
     padding: 10px 20px;
+    position: relative;
 }
 
 .navbar-brand {
     font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Flex container for left-aligned links and brand */
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .navbar-links {
@@ -32,6 +43,7 @@ body {
     padding: 8px 12px;
 }
 
+/* Mobile styles */
 .menu-toggle {
     display: none;
     background-color: #333;
@@ -42,24 +54,29 @@ body {
 }
 
 @media (max-width: 768px) {
+    /* Hide links by default on mobile */
     .navbar-links {
         display: none;
         flex-direction: column;
         width: 100%;
     }
 
+    /* Show Menu button on mobile */
     .menu-toggle {
         display: inline-block;
     }
 
+    /* Display the navbar links as a dropdown */
     .navbar-links.active {
         display: flex;
         position: absolute;
-        top: 60px;
+        top: 100%; /* Ensures links appear directly below the navbar */
         left: 0;
         background-color: #333;
         width: 100%;
-        padding: 10px 0;
+        padding: 0;
+        margin: 0;
+        border-top: 1px solid #444; /* Optional, for a cleaner look */
     }
 
     .navbar-links a {
